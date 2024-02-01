@@ -24,7 +24,7 @@ export default {
 <template>
     <div class="container py-4 text-center">
 
-        <h1 class="text-light">PROJECTS LIST</h1>
+        <h1 class="text-light mb-5">PROJECTS LIST</h1>
 
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-3">
             <div v-for="project in projects" :key="project.id" class="col">
