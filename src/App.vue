@@ -14,12 +14,12 @@ export default {
 </script>
 
 <template>
-  <div class="container py-4">
+  <main>
     <AppMain />
-  </div>
-  
+  </main>
 </template>
 
-<style lang="scss" scoped>
-@use './styles/general.scss' as *;
+<style lang="scss">
+  
+
 </style>

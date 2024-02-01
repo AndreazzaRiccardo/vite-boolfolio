@@ -1,1 +1,9 @@
 @import "node_modules/bootstrap/scss/bootstrap";
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url(../assets/img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
