@@ -1,4 +1,5 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue'
 
 export default {
@@ -8,15 +9,15 @@ export default {
     }
   },
   components: {
-    AppMain
-  }
+    AppMain,
+    AppHeader
+}
 }
 </script>
 
 <template>
-  <main>
-    <AppMain />
-  </main>
+  <AppHeader/>
+  <AppMain />
 </template>
 
 <style lang="scss"></style>

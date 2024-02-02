@@ -42,21 +42,23 @@ export default {
 </script>
 
 <template>
-    <div class="container-fluid p-5 text-center">
+    <main>
+        <div class="container py-5 text-center">
 
-        <h1 class="text-light mb-5">PROJECTS LIST</h1>
-        <div class="d-flex justify-content-end mb-4 gap-4">
-            <button v-if="page > 1" @click="backPage" class="btn btn-success">BACK</button>
-            <button v-if="page != lastPage" @click="nextPage" class="btn btn-success">NEXT</button>
-        </div>
-
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
-            <div v-for="project in projects" :key="project.id" class="col">
-                <ProjectCard :project="project" />
+            <h1 class="text-light mb-5">PROJECTS LIST</h1>
+            <div class="d-flex justify-content-end mb-4 gap-4">
+                <button v-if="page > 1" @click="backPage" class="btn btn-success">BACK</button>
+                <button v-if="page != lastPage" @click="nextPage" class="btn btn-success">NEXT</button>
             </div>
-        </div>
 
-    </div>
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
+                <div v-for="project in projects" :key="project.id" class="col">
+                    <ProjectCard :project="project" />
+                </div>
+            </div>
+
+        </div>
+    </main>
 </template>
 
 <style lang="scss" scoped></style>

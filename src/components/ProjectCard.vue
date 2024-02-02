@@ -10,8 +10,8 @@ export default {
     },
     computed: {
         truncateText() {
-            if (this.project.description && this.project.description.length > 100) {
-                return this.project.description.substring(0, 100) + '...';
+            if (this.project.description && this.project.description.length > 50) {
+                return this.project.description.substring(0, 50) + '...';
             }
             return this.project.description
         },
@@ -35,17 +35,15 @@ export default {
 
 <template>
     <div class="card h-100 border border-4" :class="borderClass">
-        <img :src="project.cover_image ? `${serverUrl}/storage/${project.cover_image}` : getNoImg()" class="card-img-top"
+        <div class="h-50">
+            <img :src="project.cover_image ? `${serverUrl}/storage/${project.cover_image}` : getNoImg()" class="card-img-top"
             :alt="project.cover_image ? `Poster of ${project.name} project` : 'Image not avaiable'">
-        <div class="card-body">
+        </div>
+        <div class="card-body h-50">
             <h5 class="card-title">{{ project.name }}</h5>
             <p class="card-text">{{ truncateText }}</p>
         </div>
-        <hr>
-        <ul class="list-group list-group-flush border-0">
-            <li class="list-group-item"><span class="fw-bold">Type:</span> {{ project.type.name }}</li>
-        </ul>
-        <hr>
+        <hr class="m-0">
         <div class="card-body w-100">
             <a href="{{ project.link }}" class="card-link text-truncate d-block">{{ project.link }}</a>
         </div>
