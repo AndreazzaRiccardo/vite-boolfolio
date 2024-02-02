@@ -1,4 +1,6 @@
 <script>
+import axios from 'axios';
+import { store } from '../store';
 
 export default {
     data() {
@@ -13,8 +15,30 @@ export default {
                     title: 'About'
                 }
             ],
+            searchInput: '',
+            store,
         }
     },
+    methods: {
+        searchWhitInput() {
+            if (this.searchInput.length % 4 == 0 && this.searchInput.trim() != "") {
+                axios.get(`${store.serverUrl}/api/search/${this.searchInput}`)
+                    .then((resp) => {
+                        this.store.projects = resp.data.results;
+                        this.store.notFound = false;
+                        if (resp.data.results.length === 0) {
+                            this.store.notFound = true;
+                        }
+                    })
+            } else if (this.searchInput.trim() == "") {
+                axios.get(`${this.store.serverUrl}/api/projects`)
+                    .then((resp) => {
+                        this.store.notFound = false;
+                        this.store.projects = resp.data.results.data;
+                    })
+            }
+        }
+    }
 }
 </script>
 
@@ -35,8 +59,8 @@ export default {
                 </div>
             </div>
             <form class="d-flex">
-                <input  class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="button">Search</button>
+                <input v-model="searchInput" @keyup="searchWhitInput" class="form-control me-2" type="text"
+                    placeholder="Search" aria-label="Search">
             </form>
         </nav>
     </header>
