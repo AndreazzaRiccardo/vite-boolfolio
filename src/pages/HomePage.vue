@@ -51,7 +51,7 @@ export default {
 
             <div v-else>
                 <h1 class="text-light mb-5">PROJECTS LIST</h1>
-                <div class="d-flex justify-content-end mb-4 gap-4">
+                <div v-if="store.btnPage" class="d-flex justify-content-end mb-4 gap-4">
                     <button v-if="page > 1" @click="backPage" class="btn btn-success">BACK</button>
                     <button v-if="page != lastPage" @click="nextPage" class="btn btn-success">NEXT</button>
                 </div>

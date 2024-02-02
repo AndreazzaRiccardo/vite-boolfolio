@@ -15,25 +15,26 @@ export default {
                     title: 'About'
                 }
             ],
-            searchInput: '',
             store,
         }
     },
     methods: {
         searchWhitInput() {
-            if (this.searchInput.length % 4 == 0 && this.searchInput.trim() != "") {
-                axios.get(`${store.serverUrl}/api/search/${this.searchInput}`)
+            if (this.store.searchInput.length % 4 == 0 && this.store.searchInput.trim() != "") {
+                axios.get(`${store.serverUrl}/api/search/${this.store.searchInput}`)
                     .then((resp) => {
                         this.store.projects = resp.data.results;
+                        this.store.btnPage = false;
                         this.store.notFound = false;
                         if (resp.data.results.length === 0) {
                             this.store.notFound = true;
                         }
                     })
-            } else if (this.searchInput.trim() == "") {
+            } else if (this.store.searchInput.trim() == "") {
                 axios.get(`${this.store.serverUrl}/api/projects`)
                     .then((resp) => {
                         this.store.notFound = false;
+                        this.store.btnPage = true;
                         this.store.projects = resp.data.results.data;
                     })
             }
@@ -59,7 +60,7 @@ export default {
                 </div>
             </div>
             <form class="d-flex">
-                <input v-model="searchInput" @keyup="searchWhitInput" class="form-control me-2" type="text"
+                <input v-model="store.searchInput" @keyup="searchWhitInput" class="form-control me-2" type="text"
                     placeholder="Search" aria-label="Search">
             </form>
         </nav>
