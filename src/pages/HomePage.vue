@@ -1,11 +1,12 @@
 <script>
 import axios from 'axios';
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
+import { store } from '../store';
 
 export default {
     data() {
         return {
-            serverUrl: 'http://127.0.0.1:8000',
+            store,
             projects: [],
             page: 1,
             lastPage: Number
@@ -19,7 +20,7 @@ export default {
     },
     methods: {
         apiCall() {
-            axios.get(`${this.serverUrl}/api/projects`, {
+            axios.get(`${this.store.serverUrl}/api/projects`, {
                 params: {
                     page: this.page
                 }

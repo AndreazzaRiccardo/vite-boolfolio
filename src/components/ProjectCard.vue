@@ -1,8 +1,10 @@
 <script>
+import { store } from '../store';
+
 export default {
     data() {
         return {
-            serverUrl: 'http://127.0.0.1:8000',
+            store
         }
     },
     props: {
@@ -36,7 +38,7 @@ export default {
 <template>
     <div class="card h-100 border border-4" :class="borderClass">
         <div class="h-50">
-            <img :src="project.cover_image ? `${serverUrl}/storage/${project.cover_image}` : getNoImg()" class="card-img-top"
+            <img :src="project.cover_image ? `${store.serverUrl}/storage/${project.cover_image}` : getNoImg()" class="card-img-top"
             :alt="project.cover_image ? `Poster of ${project.name} project` : 'Image not avaiable'">
         </div>
         <div class="card-body h-50">
