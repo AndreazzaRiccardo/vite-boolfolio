@@ -28,6 +28,7 @@ export default {
                 .then((resp) => {
                     this.projects = resp.data.results.data;
                     this.lastPage = resp.data.results.last_page;
+                    this.store.userId = resp.data.results.data[0].user_id;
                 })
         },
         nextPage() {

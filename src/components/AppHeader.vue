@@ -16,10 +16,12 @@ export default {
                 <div class="collapse navbar-collapse flex-grow-0 me-5" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <router-link class="nav-link"
+                :to="{ name: 'home' }">Home</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Me</a>
+                            <router-link class="nav-link"
+                :to="{ name: 'about' }">About Me</router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://127.0.0.1:8000/login">ADMIN</a>
