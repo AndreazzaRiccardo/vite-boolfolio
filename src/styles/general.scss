@@ -7,3 +7,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#badge:hover {
+    p {
+        display: block !important;
+        font-size: 13px;
+        z-index: 2;
+    }
+}

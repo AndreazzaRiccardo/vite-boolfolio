@@ -47,7 +47,8 @@ export default {
         </div>
         <hr class="m-0">
         <div class="card-body w-100">
-            <a href="{{ project.link }}" class="card-link text-truncate d-block">{{ project.link }}</a>
+            <router-link class="btn btn-primary"
+                :to="{ name: 'single-project', params: {slug: project.slug} }">DETAILS</router-link>
         </div>
     </div>
 </template>
