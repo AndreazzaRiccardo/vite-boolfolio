@@ -7,7 +7,6 @@ export default {
     data() {
         return {
             store,
-            projects: [],
             page: 1,
             lastPage: Number
         }
@@ -26,9 +25,8 @@ export default {
                 }
             })
                 .then((resp) => {
-                    this.projects = resp.data.results.data;
+                    this.store.projects = resp.data.results.data;
                     this.lastPage = resp.data.results.last_page;
-                    this.store.userId = resp.data.results.data[0].user_id;
                 })
         },
         nextPage() {
@@ -54,7 +52,7 @@ export default {
             </div>
 
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
-                <div v-for="project in projects" :key="project.id" class="col">
+                <div v-for="project in store.projects" :key="project.id" class="col">
                     <ProjectCard :project="project" />
                 </div>
             </div>

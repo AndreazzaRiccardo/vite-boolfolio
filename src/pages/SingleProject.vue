@@ -53,8 +53,9 @@ export default {
                 <router-link class="btn btn-success" :to="{ name: 'home' }">BACK</router-link>
             </div>
 
-            <div v-if="project.cover_image">
-                <img style="max-width:600px;" :src="`${store.serverUrl}/storage/${project.cover_image}`" alt="">
+            <div>
+                <img v-if="project.cover_image" style="max-width:600px;" :src="`${store.serverUrl}/storage/${project.cover_image}`" alt="">
+                <p class="mt-5 text-secondary" v-else>IMAGE NOT AVAILABLE</p>
             </div>
 
             <hr>
