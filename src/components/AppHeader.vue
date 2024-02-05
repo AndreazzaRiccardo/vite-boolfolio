@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         searchWhitInput() {
-            if (this.store.searchInput.length % 4 == 0 && this.store.searchInput.trim() != "") {
+            if (this.store.searchInput.length >= 3 && this.store.searchInput.trim() != "") {
                 axios.get(`${store.serverUrl}/api/search/${this.store.searchInput}`)
                     .then((resp) => {
                         this.store.projects = resp.data.results;
@@ -47,7 +47,7 @@ export default {
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
             <div class="container-fluid">
-                <p class="navbar-brand m-0">BoolFolio</p>
+                <p class="navbar-brand m-0 fw-bolder">BoolFolio</p>
                 <div class="collapse navbar-collapse flex-grow-0 me-5" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li v-for="link in links" :key="link.name" class="nav-item">
@@ -60,8 +60,9 @@ export default {
                 </div>
             </div>
             <form class="d-flex">
+                <label hidden for="search-bar"></label>
                 <input v-model="store.searchInput" @keyup="searchWhitInput" class="form-control me-2" type="text"
-                    placeholder="Search" aria-label="Search">
+                    placeholder="Search" aria-label="Search" id="search-bar">
             </form>
         </nav>
     </header>
