@@ -6,13 +6,17 @@ body {
     background-image: url(../assets/img/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 #badge:hover {
     p {
         display: block !important;
         font-size: 13px;
-        z-index: 2;
+        z-index: 1;
     }
 }
 
@@ -21,4 +25,12 @@ nav {
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 2.5rem !important;
     }
+}
+
+header {
+    z-index: 2;
+}
+
+main {
+    padding-top: 5rem;
 }

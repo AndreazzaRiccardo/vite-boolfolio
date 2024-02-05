@@ -44,8 +44,8 @@ export default {
 </script>
 
 <template>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+    <header class="position-fixed w-100">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-0">
             <div class="container-fluid">
                 <p class="navbar-brand m-0 fw-bolder">BoolFolio</p>
                 <div class="collapse navbar-collapse flex-grow-0 me-5" id="navbarSupportedContent">

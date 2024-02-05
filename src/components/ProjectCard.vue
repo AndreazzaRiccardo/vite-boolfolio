@@ -38,8 +38,9 @@ export default {
 <template>
     <div class="card h-100 border border-4" :class="borderClass">
         <div class="h-50">
-            <img :src="project.cover_image ? `${store.serverUrl}/storage/${project.cover_image}` : getNoImg()" class="card-img-top"
-            :alt="project.cover_image ? `Poster of ${project.name} project` : 'Image not avaiable'">
+            <img :src="project.cover_image ? `${store.serverUrl}/storage/${project.cover_image}` : getNoImg()"
+                class="card-img-top"
+                :alt="project.cover_image ? `Poster of ${project.name} project` : 'Image not avaiable'">
         </div>
         <div class="card-body h-50">
             <h5 class="card-title">{{ project.name }}</h5>
@@ -48,7 +49,7 @@ export default {
         <hr class="m-0">
         <div class="card-body w-100">
             <router-link class="btn btn-primary"
-                :to="{ name: 'single-project', params: {slug: project.slug} }">DETAILS</router-link>
+                :to="{ name: 'single-project', params: { slug: project.slug } }">DETAILS</router-link>
         </div>
     </div>
 </template>
