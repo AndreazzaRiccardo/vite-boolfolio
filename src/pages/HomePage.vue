@@ -7,8 +7,8 @@ export default {
     data() {
         return {
             store,
-            page: 1,
-            lastPage: Number
+            lastPage: Number,
+            currPage: 1
         }
     },
     created() {
@@ -18,24 +18,17 @@ export default {
         ProjectCard
     },
     methods: {
-        apiCall() {
+        apiCall(numPage) {
             axios.get(`${this.store.serverUrl}/api/projects`, {
                 params: {
-                    page: this.page
+                    page: numPage
                 }
             })
                 .then((resp) => {
                     this.store.projects = resp.data.results.data;
                     this.lastPage = resp.data.results.last_page;
+                    this.currPage = resp.data.results.current_page
                 })
-        },
-        nextPage() {
-            this.page++;
-            this.apiCall();
-        },
-        backPage() {
-            this.page--;
-            this.apiCall();
         },
     }
 }
@@ -52,8 +45,10 @@ export default {
             <div v-else>
                 <h1 class="text-light mb-5">PROJECTS LIST</h1>
                 <div v-if="store.btnPage" class="d-flex justify-content-end mb-4 gap-4">
-                    <button v-if="page > 1" @click="backPage" class="btn btn-success">BACK</button>
-                    <button v-if="page != lastPage" @click="nextPage" class="btn btn-success">NEXT</button>
+                    <button :disabled="currPage === 1" @click="apiCall(currPage - 1)" class="btn btn-success">PREV</button>
+                    <button  class="btn" :class="{ 'btn-primary': page === currPage, 'btn-success': page !== currPage }" @click="apiCall(page)" v-for="page in lastPage">{{ page }}</button>
+                    <button :disabled="currPage === lastPage" @click="apiCall(currPage + 1)"
+                        class="btn btn-success">NEXT</button>
                 </div>
 
                 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3">
