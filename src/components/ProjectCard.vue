@@ -38,7 +38,7 @@ export default {
 </script>
 
 <template>
-    <div class="card h-100 border border-4" :class="borderClass">
+    <div class="card h-100 border border-5" :class="borderClass">
         <div class="img-container">
             <img :src="project.cover_image ? `${store.serverUrl}/storage/${project.cover_image}` : getNoImg()"
                 class="card-img-top"

@@ -11,6 +11,10 @@ export default {
                     title: 'Home'
                 },
                 {
+                    name: 'contact-us',
+                    title: 'Contact Us'
+                },
+                {
                     name: 'about',
                     title: 'About'
                 }
@@ -53,8 +57,8 @@ export default {
                         <li v-for="link in links" :key="link.name" class="nav-item">
                             <router-link class="nav-link" :to="{ name: link.name }">{{ link.title }}</router-link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://127.0.0.1:8000/login">ADMIN</a>
+                        <li class="nav-item ms-5">
+                            <a class="nav-link text-primary" href="http://127.0.0.1:8000/login">ADMIN</a>
                         </li>
                     </ul>
                 </div>
