@@ -45,7 +45,7 @@ export default {
 
 <template>
     <header class="position-fixed w-100">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-1">
             <div class="container-fluid">
                 <p class="navbar-brand m-0 fw-bolder">BoolFolio</p>
                 <div class="collapse navbar-collapse flex-grow-0 me-5" id="navbarSupportedContent">
@@ -68,4 +68,15 @@ export default {
     </header>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+header {
+    z-index: 2;
+
+    nav {
+        p {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 2.5rem !important;
+        }
+    }
+}
+</style>

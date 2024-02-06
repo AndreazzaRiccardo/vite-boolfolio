@@ -99,4 +99,12 @@ export default {
     </main>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+#badge:hover {
+    p {
+        display: block !important;
+        font-size: 13px;
+        z-index: 1;
+    }
+}
+</style>
