@@ -73,7 +73,7 @@ export default {
                         <div class="mb-3">
                             <div>
                                 <label for="email" class="form-label">Email address</label>
-                                <input v-model.trim="email" type="email" class="form-control" id="email">
+                                <input v-model.trim="email" type="email" class="form-control" id="email" autocomplete="email">
                             </div>
                             <div v-if="errors && errors.email">
                                 <div class="invalid-feedback d-inline-block" v-for="error in errors.email">
@@ -85,7 +85,7 @@ export default {
                         <div class="mb-3">
                             <div>
                                 <label for="name" class="form-label">Name</label>
-                                <input v-model.trim="name" type="text" class="form-control" id="name">
+                                <input v-model.trim="name" type="text" class="form-control" id="name" autocomplete="name">
                             </div>
                             <div class="invalid-feedback d-inline-block" v-if="errors && errors.name">
                                 <div v-for="error in errors.name">
@@ -97,7 +97,7 @@ export default {
                         <div class="mb-3">
                             <div>
                                 <label for="lastname" class="form-label">Lastname</label>
-                                <input v-model.trim="lastname" type="text" class="form-control" id="lastname">
+                                <input v-model.trim="lastname" type="text" class="form-control" id="lastname" autocomplete="name">
                             </div>
                             <div class="invalid-feedback d-inline-block" v-if="errors && errors.lastname">
                                 <div v-for="error in errors.lastname">
@@ -109,7 +109,7 @@ export default {
                         <div class="mb-3">
                             <div>
                                 <label for="phone" class="form-label">Phone Number</label>
-                                <input v-model.trim="phone" type="tel" class="form-control" id="phone">
+                                <input v-model.trim="phone" type="tel" class="form-control" id="phone" autocomplete="tel">
                             </div>
                             <div class="invalid-feedback d-inline-block" v-if="errors && errors.phone">
                                 <div v-for="error in errors.phone">

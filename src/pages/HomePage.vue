@@ -63,7 +63,7 @@ export default {
                 <div class="d-flex align-items-end justify-content-between mb-5">
                     <div class="w-100 d-flex flex-column align-items-start">
                         <p class="text-light mb-1">TYPE SELECT</p>
-                        <select @change="apiCall(1)" v-model="selectType" class="form-select w-25" name="" id="">
+                        <select @change="apiCall(1)" v-model="selectType" class="form-select w-25" name="select-type" id="select-type">
                             <option value="">ALL</option>
                             <option v-for="elem in types" :value="elem.id">{{ elem.name }}</option>
                         </select>
