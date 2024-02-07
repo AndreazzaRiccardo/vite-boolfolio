@@ -5,5 +5,5 @@ export const store = reactive({
     projects: [],
     notFound: false,
     searchInput: '',
-    btnPage: true
+    btnPage: true,
 })

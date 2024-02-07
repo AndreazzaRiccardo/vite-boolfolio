@@ -46,7 +46,7 @@ export default {
                     this.types = resp.data.results;
                 })
         }
-    }
+    },
 }
 </script>
 
@@ -61,7 +61,7 @@ export default {
             <div v-else>
                 <h1 class="text-light mb-5">PROJECTS LIST</h1>
                 <div class="d-flex align-items-end justify-content-between mb-5">
-                    <div class="w-100 d-flex flex-column align-items-start">
+                    <div v-if="store.btnPage" class="w-100 d-flex flex-column align-items-start">
                         <p class="text-light mb-1">TYPE SELECT</p>
                         <select @change="apiCall(1)" v-model="selectType" class="form-select w-25" name="select-type" id="select-type">
                             <option value="">ALL</option>
@@ -70,10 +70,13 @@ export default {
                     </div>
 
                     <div v-if="store.btnPage" class="d-flex justify-content-end gap-4">
+
                         <button :disabled="currPage === 1" @click="apiCall(currPage - 1)"
                             class="btn btn-success">PREV</button>
-                        <button class="btn" :class="{ 'btn-primary': page === currPage, 'btn-success': page !== currPage }"
+
+                        <button class="btn page-btn" :class="{ 'btn-primary': page === currPage, 'btn-success': page !== currPage }"
                             @click="apiCall(page)" v-for="page in lastPage">{{ page }}</button>
+
                         <button :disabled="currPage === lastPage" @click="apiCall(currPage + 1)"
                             class="btn btn-success">NEXT</button>
                     </div>
