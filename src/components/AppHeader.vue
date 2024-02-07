@@ -52,6 +52,10 @@ export default {
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-1">
             <div class="container-fluid">
                 <p class="navbar-brand m-0 fw-bolder">BoolFolio</p>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
                 <div class="collapse navbar-collapse flex-grow-0 me-5" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li v-for="link in links" :key="link.name" class="nav-item">
@@ -73,6 +77,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
 header {
     z-index: 2;
 
@@ -81,6 +86,11 @@ header {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-size: 2.5rem !important;
         }
+    }
+
+    .router-link-active {
+        font-weight: bolder;
+        border-bottom: 2px solid;
     }
 }
 </style>
